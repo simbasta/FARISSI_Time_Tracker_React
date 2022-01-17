@@ -1,0 +1,42 @@
+.divContCards1{
+    display: flex;
+}
+.divContCards2{
+    display: flex;
+}
+
+.divGInSec1 {
+   
+    margin-left: 23%;
+    margin-top: 5%;
+}
+
+
+
+.divGcard1, .divGcard2, .divGcard3, .divGcard4, .divGcard5, .divGcard6 {
+    background-color: #ff8b64;
+    width: 250px;   
+    height: 235px;   
+    border-radius: 15px;
+    position: relative;
+    overflow: hidden;
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+   }
+.divGcard2{
+    background-color: #56c2e6;
+}
+.divGcard3{
+    background-color: #ff5e7d;
+}
+.divGcard4{
+    background-color: #4bcf83;
+}
+.divGcard5{
+    background-color: #7235d1;
+}
+.divGcard6{
+    background-color: #f1c65b;
+}

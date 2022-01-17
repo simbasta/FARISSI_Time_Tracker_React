@@ -1,0 +1,60 @@
+*{
+    font-family: 'Rubik', sans-serif;
+}
+
+
+
+
+.bg-bleu-fonce{
+    background-color: hsl(235, 46%, 20%);
+}
+
+
+
+.svgWork{
+    position: absolute;
+    right: 9%;
+    top: -15px;
+    
+}
+
+.divG2card {
+    background-color: #1d204b;
+    border-radius: 15px;
+    width: 100%;
+    z-index: 1;
+    height: 188px;
+    overflow: hidden;
+    position: relative;
+}
+
+.divG2card:hover{
+ background-color: #34397b;
+    
+}
+
+.divElementsP {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 20px;
+    font-size: 25px;
+    color: #fff;
+}
+
+
+.h1 {
+    color: #fff;
+    margin-left: 20px !important;
+    font-size: 47px;
+    margin: auto;
+}
+
+.p3{
+    margin-left: 20px;
+    color: #989bce;
+}
+
+.p1{
+    font: 12px;
+}
