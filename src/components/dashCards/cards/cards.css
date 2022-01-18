@@ -5,17 +5,13 @@
     display: flex;
 }
 
-.divGInSec1 {
-   
-    margin-left: 23%;
-    margin-top: 5%;
-}
+
 
 
 
 .divGcard1, .divGcard2, .divGcard3, .divGcard4, .divGcard5, .divGcard6 {
     background-color: #ff8b64;
-    width: 250px;   
+    width: 278px;   
     height: 235px;   
     border-radius: 15px;
     position: relative;
@@ -25,6 +21,10 @@
     flex-direction: column;
     justify-content: end;
    }
+
+
+
+   
 .divGcard2{
     background-color: #56c2e6;
 }
@@ -39,4 +39,32 @@
 }
 .divGcard6{
     background-color: #f1c65b;
+}
+
+
+.section1 {
+    display: flex;
+    /* margin: 0 auto; */
+    flex-direction: row;
+    align-items: center;
+    margin-top: 4%;
+    margin-left: 6%;
+}
+
+
+.divGInSec1{
+    margin-left: 22px;
+}
+
+
+
+
+.btnchangeDaily{
+    /* color: #686ba7; */
+    background-color: #686ba7;
+}
+
+
+.btnchangeDaily:hover{
+    color: #fff;
 }

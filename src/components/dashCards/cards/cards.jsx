@@ -1,6 +1,19 @@
 import React from "react";
+import { Component } from "react/cjs/react.production.min";
 import Thecards from "../dashcards";
 import './cards.css'
+import './usercard.css'
+
+import UserCard from "./usercard";
+
+
+import data from "../../../data.json"
+
+
+import userImg from '../../../images/image-jeremy.png'
+
+
+
 
 
 const svgWork = <svg className='svgWork' width="79" height="79" xmlns="http://www.w3.org/2000/svg"><path d="m18.687 10.43 15.464 30.906c.31.682.743 1.322 1.3 1.88.558.557 1.198.99 1.714 1.217L68.237 59.98 52.484 75.732a8.025 8.025 0 0 1-11.355 0L2.934 37.538a8.025 8.025 0 0 1 0-11.356L18.687 10.43Zm19.345-7.99 10.839 10.838 2.065-2.064a5.845 5.845 0 0 1 8.258 0l8.258 8.259a5.845 5.845 0 0 1 0 8.258l-2.064 2.064 10.839 10.84a8.025 8.025 0 0 1 0 11.355l-4.728 4.728L39.126 40.53a1.963 1.963 0 0 1-.578-.413 1.963 1.963 0 0 1-.413-.578L21.95 7.168l4.728-4.728a8.025 8.025 0 0 1 11.355 0Zm17.033 12.903-2.064 2.065 8.258 8.258 2.064-2.064-8.258-8.259Z" fill="#D96C47" fill-rule="nonzero" /></svg>
@@ -11,36 +24,115 @@ const svgSocial = <svg className='svgWork' width="75" height="100" xmlns="http:/
 const svgSelf = <svg className='svgWork' width="67" height="67" xmlns="http://www.w3.org/2000/svg"><path d="M.918 50.848c.114 1.723.232 3.5.346 5.336l.003.038.448 6.038c.06.81.412 1.536.951 2.075.54.54 1.266.892 2.075.952l6.038.447.038.003c12.086.755 21.237 1.231 28.95.484 9.007-.873 15.369-3.445 20.02-8.096 8.413-8.413 8.398-21.609-.034-30.041-3.79-3.79-8.959-6.11-14.31-6.526-.415-5.352-2.736-10.52-6.526-14.31C30.484-1.185 17.288-1.2 8.875 7.214-1.295 17.384-.415 30.697.918 50.848ZM21.36 27.122l6.172 6.173 6.16-6.159 6.172 6.173-6.16 6.158 6.173 6.173-6.158 6.158-6.173-6.172-6.158 6.158-6.173-6.172 6.159-6.159-6.173-6.172 6.16-6.159Z" fill="#E6A532" fill-rule="nonzero" /></svg>
 
 
-function Cards() {
-    return (
-        <section className="section1">
-            <div className="divGInSec1">
-                <div className="divContCards1">
-                    <div className="divGcard1">
+class Cards extends Component {
 
-                        <Thecards p1="Work" h1I="32hrs" littleP='laste week - 36hrs' svg={svgWork}></Thecards>
+    state = {
+        changeHrs: [
+            { h1I: "32hrs", littleP: "last week - 36hrs" },
+            { h1I: "10hrs", littleP: "last week - 8hrs" },
+            { h1I: "4hrs", littleP: "last week - 7hrs" },
+            { h1I: "4hrs", littleP: "last week - 5hrs" },
+            { h1I: "5hrs", littleP: "last week - 10hrs" },
+            { h1I: "2hrs", littleP: "last week - 2hrs" },
+        ]
+    }
+
+
+
+    daily = () => {
+        this.setState({
+            changeHrs: [
+                { h1I: data[0].timeframes.daily.current + "hrs", littleP: "last day" + " - " + data[0].timeframes.daily.previous + "hrs" },
+                { h1I: data[1].timeframes.daily.current + "hrs", littleP: "last day" + " - " + data[1].timeframes.daily.previous + "hrs" },
+                { h1I: data[2].timeframes.daily.current + "hrs", littleP: "last day" + " - " + data[2].timeframes.daily.previous + "hrs" },
+                { h1I: data[3].timeframes.daily.current + "hrs", littleP: "last day" + " - " + data[3].timeframes.daily.previous + "hrs" },
+                { h1I: data[4].timeframes.daily.current + "hrs", littleP: "last day" + " - " + data[4].timeframes.daily.previous + "hrs" },
+                { h1I: data[5].timeframes.daily.current + "hrs", littleP: "last day" + " - " + data[5].timeframes.daily.previous + "hrs" }
+            ]
+
+        })
+    }
+    weekly = () => {
+        this.setState({
+            changeHrs: [
+                { h1I: data[0].timeframes.weekly.current + "hrs", littleP: "last week" + " - " + data[0].timeframes.weekly.previous + "hrs" },
+                { h1I: data[1].timeframes.weekly.current + "hrs", littleP: "last week" + " - " + data[1].timeframes.weekly.previous + "hrs" },
+                { h1I: data[2].timeframes.weekly.current + "hrs", littleP: "last week" + " - " + data[2].timeframes.weekly.previous + "hrs" },
+                { h1I: data[3].timeframes.weekly.current + "hrs", littleP: "last week" + " - " + data[3].timeframes.weekly.previous + "hrs" },
+                { h1I: data[4].timeframes.weekly.current + "hrs", littleP: "last week" + " - " + data[4].timeframes.weekly.previous + "hrs" },
+                { h1I: data[5].timeframes.weekly.current + "hrs", littleP: "last week" + " - " + data[5].timeframes.weekly.previous + "hrs" },
+            ]
+
+        })
+    }
+    Monthly = () => {
+        this.setState({
+            changeHrs: [
+                { h1I: data[0].timeframes.monthly.current + "hrs", littleP: "last Month" + " - " + data[0].timeframes.monthly.previous + "hrs" },
+                { h1I: data[1].timeframes.monthly.current + "hrs", littleP: "last Month" + " - " + data[1].timeframes.monthly.previous + "hrs" },
+                { h1I: data[2].timeframes.monthly.current + "hrs", littleP: "last Month" + " - " + data[2].timeframes.monthly.previous + "hrs" },
+                { h1I: data[3].timeframes.monthly.current + "hrs", littleP: "last Month" + " - " + data[3].timeframes.monthly.previous + "hrs" },
+                { h1I: data[4].timeframes.monthly.current + "hrs", littleP: "last Month" + " - " + data[4].timeframes.monthly.previous + "hrs" },
+                { h1I: data[5].timeframes.monthly.current + "hrs", littleP: "last Month" + " - " + data[5].timeframes.monthly.previous + "hrs" },
+            ]
+
+        })
+    }
+
+
+    render() {
+        return (
+            <section className="section1">
+
+
+
+                {/* user card */}
+                <div className="divbackblue2">
+                    <div className="divbackblue1">
+                        <div className="divCimgUser">
+                            <img className="imgUer" src={userImg} alt="" />
+                            <p className="p1InUserCard">report for</p>
+                            <h1 className="h1IncardUser">Walid Farissi</h1>
+                        </div>
                     </div>
-                    <div className="divGcard2">
-                        <Thecards p1="play" h1I="10hrs" littleP='laste week - 8hrs' svg={svgPlay}></Thecards>
-                    </div>
-                    <div className="divGcard3">
-                        <Thecards p1="study" h1I="4hrs" littleP='laste week - 7hrs' svg={svgStudy}></Thecards>
-                    </div>
-                </div >
-                <div className="divContCards2">
-                    <div className="divGcard4">
-                        <Thecards p1="Exercices" h1I="4hrs" littleP='laste week - 5hrs' svg={svgExerc}></Thecards>
-                    </div>
-                    <div className="divGcard5">
-                        <Thecards p1="social" h1I="5hrs" littleP='laste week - 10hrs' svg={svgSocial} ></Thecards>
-                    </div>
-                    <div className="divGcard6">
-                        <Thecards p1="Self care" h1I="2hrs" littleP='laste week - 2hrs' svg={svgSelf} ></Thecards>
+                    <div className="divCBtn">
+                        <button onClick={this.daily} className="btnchangeDaily">Daily</button>
+                        <button onClick={this.weekly} className="btnchangeDaily">Weekly</button>
+                        <button onClick={this.Monthly} className="btnchangeDaily">Monthly</button>
                     </div>
                 </div>
-            </div>
-        </section>
-    )
+
+
+
+
+                <div className="divGInSec1">
+                    <div className="divContCards1">
+                        <div className="divGcard1">
+
+                            <Thecards p1="Work" h1I={this.state.changeHrs[0].h1I} littleP={this.state.changeHrs[0].littleP} svg={svgWork}></Thecards>
+                        </div>
+                        <div className="divGcard2">
+                            <Thecards p1="play" h1I={this.state.changeHrs[1].h1I} littleP={this.state.changeHrs[1].littleP} svg={svgPlay}></Thecards>
+                        </div>
+                        <div className="divGcard3">
+                            <Thecards p1="study" h1I={this.state.changeHrs[2].h1I} littleP={this.state.changeHrs[2].littleP} svg={svgStudy}></Thecards>
+                        </div>
+                    </div >
+                    <div className="divContCards2">
+                        <div className="divGcard4">
+                            <Thecards p1="Exercices" h1I={this.state.changeHrs[3].h1I} littleP={this.state.changeHrs[3].littleP} svg={svgExerc}></Thecards>
+                        </div>
+                        <div className="divGcard5">
+                            <Thecards p1="social" h1I={this.state.changeHrs[4].h1I} littleP={this.state.changeHrs[4].littleP} svg={svgSocial} ></Thecards>
+                        </div>
+                        <div className="divGcard6">
+                            <Thecards p1="Self care" h1I={this.state.changeHrs[5].h1I} littleP={this.state.changeHrs[5].littleP} svg={svgSelf} ></Thecards>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        )
+    }
 }
 
 export default Cards

@@ -18,6 +18,8 @@
     
 }
 
+
+
 .divG2card {
     background-color: #1d204b;
     border-radius: 15px;
@@ -27,6 +29,12 @@
     overflow: hidden;
     position: relative;
 }
+
+
+
+
+
+
 
 .divG2card:hover{
  background-color: #34397b;
